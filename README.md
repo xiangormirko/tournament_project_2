@@ -8,18 +8,18 @@ This is a project including sql schema in a virtual box instance using vagrant. 
 
 MODULES
 -------------------
-tournament.py: contains methods to interact with database such as create players, retrieve standings, and create swiss pairings
-test_tournament.py: a unit test file to ensure that all methods behave as needed
-tournament.sql: contains sql commands to create tables and views necessary
+tournament.py: contains methods to interact with database such as create players, retrieve standings, and create swiss pairings 
+test_tournament.py: a unit test file to ensure that all methods behave as needed  
+tournament.sql: contains sql commands to create tables and views necessary  
 
-python libraries used: psycopg2
+python libraries used: psycopg2  
 
 INSTALLATION
 -------------------
-Install Git, Vagrant, and Virtual Box
--Git: If you do not have a version of git installed, please visit http://git-scm.com/downloads
--Vagrant: in order to install Vagrant, plese visit https://www.vagrantup.com/downloads
--VirtualBox: in order to install Virtual Box, please visit https://www.virtualbox.org/wiki/Downloads
+Install Git, Vagrant, and Virtual Box  
+-Git: If you do not have a version of git installed, please visit http://git-scm.com/downloads  
+-Vagrant: in order to install Vagrant, plese visit https://www.vagrantup.com/downloads  
+-VirtualBox: in order to install Virtual Box, please visit https://www.virtualbox.org/wiki/Downloads  
 
 CONFIGURATION
 -------------------
