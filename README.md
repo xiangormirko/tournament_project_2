@@ -12,14 +12,32 @@ tournament.py: contains methods to interact with database such as create players
 test_tournament.py: a unit test file to ensure that all methods behave as needed
 tournament.sql: contains sql commands to create tables and views necessary
 
+python libraries used: psycopg2
 
-USE
+INSTALLATION
 -------------------
--Ensure that database 'tournament' is created
--Connect to database
--Import or paste sql schema to create tables and views from tournament.sql
--Run test_tournament.py to check health of script
--Use method in tournament.py as needed
+Install Git, Vagrant, and Virtual Box
+-Git: If you do not have a version of git installed, please visit http://git-scm.com/downloads
+-Vagrant: in order to install Vagrant, plese visit https://www.vagrantup.com/downloads
+-VirtualBox: in order to install Virtual Box, please visit https://www.virtualbox.org/wiki/Downloads
+
+CONFIGURATION
+-------------------
+-git clone https://github.com/xiangormirko/tournament_project_2.git
+-using terminal navigate to the fouder in '/vagrant'
+-type 'vagrant up'
+-after the inizial setting up, type 'vagrant ssh' to log into the instance
+-navigate to 'cd /vagrant' to access the share files
+
+DATABASE & TABLES
+-------------------
+-After you are logged into vagrant type psql
+-Here type the commands to create the database tournament ('CREATE DATABASE tournament;')
+-You may check the the databases with the command '/d'
+-Connect to the database using the command ('\c tournament')
+-Import using command '/i tournament.sql' or paste sql schema to create tables and views from tournament.sql
+-Run 'python test_tournament.py' to check if the script passes all unit tests
+-Use and edit methods in tournament.py as needed
 -Thanks!
 
 
