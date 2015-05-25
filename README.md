@@ -23,7 +23,7 @@ Install Git, Vagrant, and Virtual Box
 
 CONFIGURATION
 -------------------
--git clone https://github.com/xiangormirko/tournament_project_2.git
+-git clone https://github.com/xiangormirko/tournament_project_2.git 
 -using terminal navigate to the fouder in '/vagrant'
 -type 'vagrant up'
 -after the inizial setting up, type 'vagrant ssh' to log into the instance
@@ -31,14 +31,14 @@ CONFIGURATION
 
 DATABASE & TABLES
 -------------------
--After you are logged into vagrant type psql
--Here type the commands to create the database tournament ('CREATE DATABASE tournament;')
--You may check the the databases with the command '/d'
--Connect to the database using the command ('\c tournament')
--Import using command '/i tournament.sql' or paste sql schema to create tables and views from tournament.sql
--Run 'python test_tournament.py' to check if the script passes all unit tests
--Use and edit methods in tournament.py as needed
--Thanks!
+-After you are logged into vagrant type psql  
+-Here type the commands to create the database tournament ('CREATE DATABASE tournament;')  
+-You may check the the databases with the command '/d'  
+-Connect to the database using the command ('\c tournament')  
+-Import using command '/i tournament.sql' or paste sql schema to create tables and views from tournament.sql  
+-Run 'python test_tournament.py' to check if the script passes all unit tests  
+-Use and edit methods in tournament.py as needed  
+-Thanks!  
 
 
 
