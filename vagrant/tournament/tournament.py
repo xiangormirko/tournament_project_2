@@ -8,14 +8,19 @@ import psycopg2
 
 def connect():
     """Connect to the PostgreSQL database.  Returns a database connection."""
-    return psycopg2.connect("dbname=tournament")
+    try:
+        conn = psycopg2.connect("dbname=tournament")
+        return conn
+    except psycopg2.Error as e:
+        print("There was an error stablishing conneciton\
+             with the database")
 
 
 def deleteMatches():
     """Remove all the match records from the database."""
     # standard database action
     # connection, cursor, execute query, commit, close
-    DB = psycopg2.connect("dbname=tournament")
+    DB = connect()
     c = DB.cursor()
     c.execute("DELETE FROM matches")
     DB.commit()
@@ -25,7 +30,7 @@ def deleteMatches():
 
 def deletePlayers():
     """Remove all the player records from the database."""
-    DB = psycopg2.connect("dbname=tournament")
+    DB = connect()
     c = DB.cursor()
     c.execute("DELETE FROM players")
     DB.commit()
@@ -35,7 +40,7 @@ def deletePlayers():
 
 def countPlayers():
     """Returns the number of players currently registered."""
-    DB = psycopg2.connect("dbname=tournament")
+    DB = connect()
     c = DB.cursor()
     c.execute("SELECT COUNT(*) FROM players")
     players = c.fetchall()[0][0]
@@ -53,7 +58,7 @@ def registerPlayer(name):
       name: the player's full name (need not be unique).
     """
     # takes in a name and registers a player
-    DB = psycopg2.connect("dbname=tournament")
+    DB = connect()
     c = DB.cursor()
     c.execute("INSERT INTO players (name) VALUES (%s)", (name,))
     DB.commit()
@@ -76,7 +81,7 @@ def playerStandings():
     """
     # fetches from a view called standings
 
-    DB = psycopg2.connect("dbname=tournament")
+    DB = connect()
     c = DB.cursor()
     c.execute("SELECT * FROM standings;")
     standing = []
@@ -100,7 +105,7 @@ def reportMatch(winner, loser):
     """
     # registers a match result with winner and loser
 
-    DB = psycopg2.connect("dbname=tournament")
+    DB = connect()
     c = DB.cursor()
     c.execute("INSERT INTO matches VALUES (%s, %s)", (winner, loser))
     DB.commit()
@@ -126,19 +131,22 @@ def swissPairings():
 
     # the view in the database is organized with id, name
     # ordered by amount of winnings
-    DB = psycopg2.connect("dbname=tournament")
+    DB = connect()
     c = DB.cursor()
     c.execute("SELECT * FROM pairings;")
     standings = c.fetchall()
     pairings = []
     i = 0
     # the code goes through ever 2 pair and appends them
-    while i < len(standings):
-        player1 = standings[i]
-        player2 = standings[i+1]
-        pair = player1+player2
-        pairings.append(pair)
-        i += 2
+    if len(standings) % 2 != 0:
+        print("Odd number of players! please recruite another player")
+    else:
+        while i < len(standings):
+            player1 = standings[i]
+            player2 = standings[i+1]
+            pair = player1+player2
+            pairings.append(pair)
+            i += 2
     DB.close()
 
     return pairings

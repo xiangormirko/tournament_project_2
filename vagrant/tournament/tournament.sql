@@ -6,12 +6,22 @@
 -- You can write comments in this file by starting them with two dashes, like
 -- these lines here.
 
+DROP DATABASE IF EXISTS tournament;
+DROP TABLE IF EXISTS players;
+DROP TABLE IF EXISTS matches;
+DROP VIEW IF EXISTS wins;
+DROP VIEW IF EXISTS count;
+DROP VIEW IF EXISTS standings;
+DROP VIEW IF EXISTS pairings;
+
+
 CREATE TABLE players ( name TEXT,
                      id SERIAL PRIMARY KEY );
 
 
 CREATE TABLE matches ( winner INT references players (id),
-                     loser INT references players (id));
+                     loser INT references players (id),
+                     match_id SERIAL PRIMARY KEY);
 
 --A view named wins to display wins grouped by player and ordered by wins
 CREATE VIEW wins AS 
@@ -40,9 +50,7 @@ ORDER BY wins.winnings DESC;
 --A simple view to facilitate the pairing of players
 CREATE VIEW pairings AS 
 SELECT standings.id, standings.name 
-FROM standings; 
-
-
+FROM standings;
 
 
 
