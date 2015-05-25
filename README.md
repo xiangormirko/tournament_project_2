@@ -23,11 +23,11 @@ Install Git, Vagrant, and Virtual Box
 
 CONFIGURATION
 -------------------
--git clone https://github.com/xiangormirko/tournament_project_2.git 
--using terminal navigate to the fouder in '/vagrant'
--type 'vagrant up'
--after the inizial setting up, type 'vagrant ssh' to log into the instance
--navigate to 'cd /vagrant' to access the share files
+-git clone https://github.com/xiangormirko/tournament_project_2.git  
+-using terminal navigate to the fouder in '/vagrant'  
+-type 'vagrant up'  
+-after the inizial setting up, type 'vagrant ssh' to log into the instance  
+-navigate to 'cd /vagrant' to access the share files  
 
 DATABASE & TABLES
 -------------------
